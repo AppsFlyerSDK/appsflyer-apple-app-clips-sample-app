@@ -1,9 +1,10 @@
-# App Clips Sample App
+# Apple App Clips Sample App
 
-<img src="https://developer.apple.com/news/images/og/app-clips-og.jpg"  width="250">
+<img src="https://user-images.githubusercontent.com/61788924/88316733-f027a900-cd20-11ea-86d2-3c66cd8c9615.png">
 
 ## Table of content
 - [Intro](#intro) 
+- [Why App Clips?](#whyappclips)
 - [Responding to Invocations](#invocations)
 - [Share Data Between the App Clip and the App](#data-share)
 - [Location verification](#location-verification)
@@ -11,12 +12,33 @@
 - [Downloading the Full App](#download-full-app)
 
 ## <a id="intro"> 🔷 Intro
+    
+  With the release of `iOS14` we view [App Clips](https://developer.apple.com/documentation/app_clips) as an innovative step by Apple. 
+  At AppsFlyer we see App Clips as the future and evolutions of apps, especially for apps that you do not use on a daily basis. 
+  We've put together this sample app together with a [**comprehensive guide**](https://www.appsflyer.com/resources/others/apple-app-clips/) to assist you in developing your first App Clip and implement key features.
   
-  Starting from `iOS 14.0` Apple introduced [App Clips](https://developer.apple.com/documentation/app_clips).<br>
-  This is a sample app that implemetents the new App Clip features.
+## <a id="whyappclips"> Why App Clips? Why now?
+
+  Let’s imagine for a moment that you walk into a coffee shop and notice that there is a long line. Next to the cash register you see a sign inviting you to skip the line and purchase your coffee via the coffee shop’s app. 
+
+Any first thoughts? 
+
+Let me tell you, mine would be, “No way am I going to install an app that will take up precious real-estate on my device.” It would then lead me to question what kind of data they will collect about my life and then I will probably be spammed. No thanks. And all this just to skip the line...
+
+**Skip the line without giving up on privacy**
+
+Apple App Clips are about to change the way you think, and; moreover, they will probably change the way that we interact with our environment using our mobile devices. App Clips enable you to do *‘here-and-now’* activities using your device almost instantly without sacrificing privacy or sharing your geo location.
+
+In the coffee shop example above, the QR code will invoke an App Clip where you are given the opportunity to identify using [Apple Sign-in](https://developer.apple.com/sign-in-with-apple/) and purchase using [Apple Pay](https://developer.apple.com/apple-pay/), allowing you to complete your purchase within seconds, effectively skipping the line. 
+
+App Clips require app developers to understand a few new concepts and develop the App Clip alongside their app, which may require some refactoring.
+
+**We hope you'll find this sample app useful.** 
+
+**Any comments are appreciated and of course stars ⭐️**
+
   
 ## <a id="invocations"> 🔗 Responding to Invocations
-  
   ```swift
      func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {
         
@@ -34,8 +56,7 @@
           walkToViewWithParams(fruitName: fruitName)
         }
     }
-  ```
-  
+  ``` 
   
 ## <a id="data-share"> 🔀 Share Data Between the App Clip and the App
 
