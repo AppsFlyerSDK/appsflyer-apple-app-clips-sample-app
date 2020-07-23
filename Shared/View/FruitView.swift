@@ -9,7 +9,6 @@ import UIKit
 
 class FruitView : UIView {
     
-    
     var headerView: UIView!
     var titleLabel: UILabel!
     var imageView: UIImageView!
@@ -21,7 +20,7 @@ class FruitView : UIView {
         self.imageView  = UIImageView(frame:CGRect(x:100, y:100, width:screenSize.width - 200, height:200))
         self.imageView.image = image
         self.imageView.layer.cornerRadius = 10
-        
+        self.imageView.contentMode = .scaleAspectFit
         self.setHeader(title: title)
         
         self.backgroundColor = color
@@ -37,8 +36,6 @@ class FruitView : UIView {
         headerView.backgroundColor = .white
         headerView.layer.cornerRadius = 10
 
-        
-        
         self.addSubview(headerView)
 
         titleLabel = UILabel(frame:  CGRect(x: 0, y: 0, width: self.frame.size.width, height: 50))
@@ -47,7 +44,6 @@ class FruitView : UIView {
         titleLabel.textAlignment = .center
         titleLabel.font = UIFont(name: titleLabel.font.fontName, size: 40)
         headerView.addSubview(titleLabel)
-
     }
     
     required init?(coder aDecoder: NSCoder) {

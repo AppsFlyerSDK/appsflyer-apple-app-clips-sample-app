@@ -14,19 +14,23 @@ class MainViewController: UIViewController {
     }
 
     @IBAction func bananasPressed(_ sender: Any) {
-        presentVC(vc: BananasViewController())
+        presentViewController(withFruit: .banana)
     }
     
     @IBAction func peachesPressed(_ sender: Any) {
-        presentVC(vc: PeachesViewController())
+        presentViewController(withFruit: .peaches)
     }
     
     @IBAction func applesPressed(_ sender: Any) {
-        presentVC(vc: ApplesViewController())
+        presentViewController(withFruit: .apple)
     }
     
-    func presentVC(vc : UIViewController){
-        self.present(vc, animated: true, completion: nil)
+    func presentViewController(withFruit fruit: Fruits) {
+        
+        let destinationViewController = FruitViewController()
+        destinationViewController.fruit = fruit
+        
+        present(destinationViewController, animated: true, completion: nil)
     }
 }
 

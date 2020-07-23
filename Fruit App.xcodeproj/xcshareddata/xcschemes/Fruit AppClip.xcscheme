@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BD51E49724BB087A00F37785"
-               BuildableName = "FruitAppClip.app"
-               BlueprintName = "FruitAppClip"
+               BlueprintIdentifier = "478B809424C87DA400F0B6E9"
+               BuildableName = "Fruit AppClip.app"
+               BlueprintName = "Fruit AppClip"
                ReferencedContainer = "container:Fruit App.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -44,22 +44,16 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "BD51E49724BB087A00F37785"
-            BuildableName = "FruitAppClip.app"
-            BlueprintName = "FruitAppClip"
+            BlueprintIdentifier = "478B809424C87DA400F0B6E9"
+            BuildableName = "Fruit AppClip.app"
+            BlueprintName = "Fruit AppClip"
             ReferencedContainer = "container:Fruit App.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <CommandLineArguments>
-         <CommandLineArgument
-            argument = ""
-            isEnabled = "NO">
-         </CommandLineArgument>
-      </CommandLineArguments>
       <EnvironmentVariables>
          <EnvironmentVariable
             key = "_XCAppClipURL"
-            value = "https://fruits.com/check?fruit_name=apples"
+            value = "https://fruits.com/check?fruit_name=bananas"
             isEnabled = "YES">
          </EnvironmentVariable>
       </EnvironmentVariables>
@@ -74,9 +68,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "BD51E49724BB087A00F37785"
-            BuildableName = "FruitAppClip.app"
-            BlueprintName = "FruitAppClip"
+            BlueprintIdentifier = "478B809424C87DA400F0B6E9"
+            BuildableName = "Fruit AppClip.app"
+            BlueprintName = "Fruit AppClip"
             ReferencedContainer = "container:Fruit App.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

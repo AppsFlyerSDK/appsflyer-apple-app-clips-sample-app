@@ -66,8 +66,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         // Guard against faulty data.
         guard activity != nil else { return }
-        guard activity!.activityType == NSUserActivityTypeBrowsingWeb else { return }
-        guard let payload = activity!.appClipActivationPayload else { return }
+        guard activity?.activityType == NSUserActivityTypeBrowsingWeb else { return }
+        guard let payload = activity?.appClipActivationPayload else { return }
         guard let incomingURL = activity?.webpageURL else { return }
 
         // Create a CLRegion object.
@@ -104,20 +104,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     
     // redirect user to desired UIViewController
-    func walkToViewWithParams(fruitName : String){
-        var vc = UIViewController()
+    func walkToViewWithParams(fruitName: String) {
+        let destinationViewController = FruitViewController()
+        
         switch fruitName {
         case "apples":
-          vc = ApplesViewController()
-        case "bananas":
-          vc = BananasViewController()
+            destinationViewController.fruit = .apple
         case "peaches":
-          vc = PeachesViewController()
+            destinationViewController.fruit = .peaches
+        case "bananas":
+            destinationViewController.fruit = .banana
         default:
-          print("unknown fruit type")
+            fatalError()
         }
         
-        UIApplication.shared.windows.first?.rootViewController?.present(vc, animated: true, completion: nil)
+        UIApplication.shared.windows.first?.rootViewController?.present(destinationViewController, animated: true, completion: nil)
     }
 }
 
