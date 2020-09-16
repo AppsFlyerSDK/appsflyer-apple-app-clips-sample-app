@@ -40,6 +40,26 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let _ = (scene as? UIWindowScene) else { return }
+        
+        // Get URL components from the incoming user activity.
+        guard let userActivity = connectionOptions.userActivities.first,
+            userActivity.activityType == NSUserActivityTypeBrowsingWeb,
+            let incomingURL = userActivity.webpageURL,
+            let components = NSURLComponents(url: incomingURL, resolvingAgainstBaseURL: true)
+        else {
+            return
+        }
+                
+        // log url
+        print("AppClip invocation url is : \(incomingURL)")
+        
+        // verify user location
+        self.verifyUserLocation(activity: userActivity)
+ 
+        // Direct to the linked content in your app clip.
+        if let fruitName = components.queryItems?.first(where: { $0.name == "fruit_name" })?.value {
+          walkToViewWithParams(fruitName: fruitName)
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -105,6 +125,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     // redirect user to desired UIViewController
     func walkToViewWithParams(fruitName: String) {
+        
+        // **** Important ****
+        // The fruits pages are not still not implemented.
+        // This function is currently here for reference only.
+        
         let destinationViewController = FruitViewController()
         
         switch fruitName {
