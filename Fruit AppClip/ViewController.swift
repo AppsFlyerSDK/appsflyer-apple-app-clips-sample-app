@@ -16,7 +16,7 @@ class ViewController: UIViewController {
 
     @IBAction func downloadFullVersionPressed(_ sender: Any) {
         
-        guard let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
+        guard let scene = view.window?.windowScene else { return }
         let config = SKOverlay.AppClipConfiguration(position: .bottom)
         let overlay = SKOverlay(configuration: config)
         overlay.delegate = self
