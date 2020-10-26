@@ -2,13 +2,17 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    <key>NSAppClip</key>
-    <dict>
-        <key>NSAppClipRequestEphemeralUserNotification</key>
-        <true/>
-        <key>NSAppClipRequestLocationConfirmation</key>
-        <true/>
-    </dict>
+	<key>AppsFlyerAppClip</key>
+	<true/>
+	<key>AppsFlyerAppGroupName</key>
+	<string>group.fruitapp.appClipToFullApp</string>
+	<key>NSAppClip</key>
+	<dict>
+		<key>NSAppClipRequestEphemeralUserNotification</key>
+		<true/>
+		<key>NSAppClipRequestLocationConfirmation</key>
+		<true/>
+	</dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
