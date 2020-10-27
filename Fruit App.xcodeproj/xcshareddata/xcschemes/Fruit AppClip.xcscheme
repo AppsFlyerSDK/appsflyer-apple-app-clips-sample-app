@@ -53,7 +53,7 @@
       <EnvironmentVariables>
          <EnvironmentVariable
             key = "_XCAppClipURL"
-            value = "https://fruits.com/check?fruit_name=bananas"
+            value = "https://fruitappclipdemo.onelink.me/hiAP/applesappclip"
             isEnabled = "YES">
          </EnvironmentVariable>
       </EnvironmentVariables>

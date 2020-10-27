@@ -1,0 +1,6 @@
+framework module Pods_Fruit_App {
+  umbrella header "Pods-Fruit App-umbrella.h"
+
+  export *
+  module * { export * }
+}
