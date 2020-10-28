@@ -1,3 +1,5 @@
+# A vanilla version without *AppsFlyer* SDK integration
+
 # Apple App Clips Sample App
 
 <img src="https://user-images.githubusercontent.com/61788924/88316733-f027a900-cd20-11ea-86d2-3c66cd8c9615.png">
@@ -12,11 +14,11 @@
 - [Downloading the Full App](#download-full-app)
 
 ## <a id="intro"> 🔷 Intro
-    
+
   With the release of `iOS14` we view [App Clips](https://developer.apple.com/documentation/app_clips) as an innovative step by Apple. 
   At AppsFlyer we see App Clips as the future and evolutions of apps, especially for apps that you do not use on a daily basis. 
   We've put together this sample app together with a [**comprehensive guide**](https://www.appsflyer.com/resources/others/apple-app-clips/) to assist you in developing your first App Clip and implement key features.
-  
+
 ## <a id="whyappclips"> Why App Clips? Why now?
 
   Let’s imagine for a moment that you walk into a coffee shop and notice that there is a long line. Next to the cash register you see a sign inviting you to skip the line and purchase your coffee via the coffee shop’s app. 
@@ -37,7 +39,7 @@ App Clips require app developers to understand a few new concepts and develop th
 
 **Any comments are appreciated and of course stars ⭐️**
 
-  
+
 ## <a id="invocations"> 🔗 Responding to Invocations
   ```swift
      func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {
@@ -56,8 +58,8 @@ App Clips require app developers to understand a few new concepts and develop th
           walkToViewWithParams(fruitName: fruitName)
         }
     }
-  ``` 
-  
+  ```
+
 ## <a id="data-share"> 🔀 Share Data Between the App Clip and the App
 
 ### App clip
@@ -98,11 +100,11 @@ When users install the full app, it can access the shared user defaults. For exa
         return true
     }
 ```
-  
+
 ## <a id="location-verification"> 📌 Location verification
-  
+
   If you create an app clip that users invoke at a physical location, you may need to [confirm](https://developer.apple.com/documentation/app_clips/responding_to_invocations) the user’s location before allowing them to perform a task.
-  
+
   ```swift
       func verifyUserLocation(activity: NSUserActivity?) {
         
@@ -138,7 +140,7 @@ When users install the full app, it can access the shared user defaults. For exa
   ```
 
 ## <a id="notifications"> ⏰ 8-hour notifications
-  
+
   If notifications are important for your app clip’s functionality, enable it to schedule or receive notifications for up to 8 hours after each launch.
 
 ```swift
@@ -186,9 +188,9 @@ func setNotification(){
 ```
 
 ## <a id="download-full-app"> ⬇️ Downloading the Full App
-  
+
   Use [SKOverlay](https://developer.apple.com/documentation/storekit/skoverlay) to recommend your full app to users and enable them to install it from within your app clip.
-  
+
   ```swift
       @IBAction func downloadFullVersionPressed(_ sender: Any) {
         
