@@ -9,57 +9,26 @@ import UIKit
 import AppClip
 import CoreLocation
 
+import AppsFlyerLib
+
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
-    var window: UIWindow?
-    
+    var window: UIWindow?    
     
     func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {
         
-        // Get URL components from the incoming user activity
-        guard userActivity.activityType == NSUserActivityTypeBrowsingWeb,
-              let incomingURL = userActivity.webpageURL,
-              let components = NSURLComponents(url: incomingURL,
-              resolvingAgainstBaseURL: true)
-        else {
-            return
-        }
-              
-        // log url
-        print("AppClip invocation url is : \(incomingURL)")
-        
-        // verify user location
-        self.verifyUserLocation(activity: userActivity)
- 
-        // Direct to the linked content in your app clip.
-        if let fruitName = components.queryItems?.first(where: { $0.name == "fruit_name" })?.value {
-          walkToViewWithParams(fruitName: fruitName)
-        }
-        
+        // Must for AppsFlyer attrib
+        AppsFlyerLib.shared().continue(userActivity, restorationHandler: nil)
     }
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        
         guard let _ = (scene as? UIWindowScene) else { return }
         
-        // Get URL components from the incoming user activity.
-        guard let userActivity = connectionOptions.userActivities.first,
-            userActivity.activityType == NSUserActivityTypeBrowsingWeb,
-            let incomingURL = userActivity.webpageURL,
-            let components = NSURLComponents(url: incomingURL, resolvingAgainstBaseURL: true)
-        else {
-            return
+        if let userActivity = connectionOptions.userActivities.first {
+            self.scene(scene, continue: userActivity)
         }
-                
-        // log url
-        print("AppClip invocation url is : \(incomingURL)")
-        
-        // verify user location
-        self.verifyUserLocation(activity: userActivity)
- 
-        // Direct to the linked content in your app clip.
-        if let fruitName = components.queryItems?.first(where: { $0.name == "fruit_name" })?.value {
-          walkToViewWithParams(fruitName: fruitName)
-        }
+        return
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -67,7 +36,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func sceneDidBecomeActive(_ scene: UIScene) {
-
+        // Start the SDK
+        AppsFlyerLib.shared().start()
     }
     
     func sceneWillResignActive(_ scene: UIScene) {
@@ -120,30 +90,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
           return CLCircularRegion(center: coordinates,
                                   radius: 100,
                                   identifier: "Apple Park")
-      }
-    
-    
-    // redirect user to desired UIViewController
-    func walkToViewWithParams(fruitName: String) {
-        
-        // **** Important ****
-        // The fruits pages are not still not implemented.
-        // This function is currently here for reference only.
-        
-        let destinationViewController = FruitViewController()
-        
-        switch fruitName {
-        case "apples":
-            destinationViewController.fruit = .apple
-        case "peaches":
-            destinationViewController.fruit = .peaches
-        case "bananas":
-            destinationViewController.fruit = .banana
-        default:
-            fatalError()
-        }
-        
-        UIApplication.shared.windows.first?.rootViewController?.present(destinationViewController, animated: true, completion: nil)
     }
+   
 }
 

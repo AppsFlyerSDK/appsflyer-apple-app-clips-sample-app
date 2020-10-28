@@ -1,4 +1,6 @@
-> # This repository will be updated to include the [AppsFlyer SDK and measurement solution](https://support.appsflyer.com/hc/en-us/articles/360014262358) shortly after the release of SDK version 6.0.8
+# Latest version which includes includes integration with  [AppsFlyer SDK and measurement solution](https://support.appsflyer.com/hc/en-us/articles/360014262358)
+
+> ## For those interested in an example showing a vanilla App Clip project without AppsFlyer code, go to tag *vanilla* ##
 
 # Apple App Clips Sample App
 
@@ -12,13 +14,13 @@
 - [Location verification](#location-verification)
 - [8-hour notifications](#notifications)
 - [Downloading the Full App](#download-full-app)
+- [AppsFlyer SDK and measurement](af-integration)
+- [‼️ How to run this project](run-project)
 
-## <a id="intro"> 🔷 Intro
-    
   With the release of `iOS14` we view [App Clips](https://developer.apple.com/documentation/app_clips) as an innovative step by Apple. 
   At AppsFlyer we see App Clips as the future and evolutions of apps, especially for apps that you do not use on a daily basis. 
   We've put together this sample app together with a [**comprehensive guide**](https://www.appsflyer.com/resources/others/apple-app-clips/) to assist you in developing your first App Clip and implement key features.
-  
+
 ## <a id="whyappclips"> Why App Clips? Why now?
 
   Let’s imagine for a moment that you walk into a coffee shop and notice that there is a long line. Next to the cash register you see a sign inviting you to skip the line and purchase your coffee via the coffee shop’s app. 
@@ -39,7 +41,7 @@ App Clips require app developers to understand a few new concepts and develop th
 
 **Any comments are appreciated and of course stars ⭐️**
 
-  
+
 ## <a id="invocations"> 🔗 Responding to Invocations
   ```swift
      func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {
@@ -58,8 +60,8 @@ App Clips require app developers to understand a few new concepts and develop th
           walkToViewWithParams(fruitName: fruitName)
         }
     }
-  ``` 
-  
+  ```
+
 ## <a id="data-share"> 🔀 Share Data Between the App Clip and the App
 
 ### App clip
@@ -100,11 +102,11 @@ When users install the full app, it can access the shared user defaults. For exa
         return true
     }
 ```
-  
+
 ## <a id="location-verification"> 📌 Location verification
-  
+
   If you create an app clip that users invoke at a physical location, you may need to [confirm](https://developer.apple.com/documentation/app_clips/responding_to_invocations) the user’s location before allowing them to perform a task.
-  
+
   ```swift
       func verifyUserLocation(activity: NSUserActivity?) {
         
@@ -140,7 +142,7 @@ When users install the full app, it can access the shared user defaults. For exa
   ```
 
 ## <a id="notifications"> ⏰ 8-hour notifications
-  
+
   If notifications are important for your app clip’s functionality, enable it to schedule or receive notifications for up to 8 hours after each launch.
 
 ```swift
@@ -188,9 +190,9 @@ func setNotification(){
 ```
 
 ## <a id="download-full-app"> ⬇️ Downloading the Full App
-  
+
   Use [SKOverlay](https://developer.apple.com/documentation/storekit/skoverlay) to recommend your full app to users and enable them to install it from within your app clip.
-  
+
   ```swift
       @IBAction func downloadFullVersionPressed(_ sender: Any) {
         
@@ -203,4 +205,56 @@ func setNotification(){
     }
   ```
 
+## <a id="af-integration"> 🏆 AppsFlyer SDK and measurement 
 
+*AppsFlyer* SDK integration lets you collect App Clip attribution data. 
+
+And configuring *AppsFlyer OneLink* lets you automatically redirect users with iOS13 or Android to the places defined in your OneLink deep linking links.
+
+The full techical details of AppsFlyer SDK integration in iOS are [here](https://support.appsflyer.com/hc/en-us/articles/207032066-iOS-SDK-V6-X-integration-guide-for-developers#integration).
+
+The steps required to integrate the SDK in an App Clip are detailed in our [developer hub](https://dev.appsflyer.com/docs/app-clip-overview).
+
+## <a id="run-project"> ‼️ How to run this project
+
+* AppsFlyer SDK is imported using Cocoapods. The pods are described in the `Podfile`
+
+```
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'Fruit App' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  pod 'AppsFlyerFramework','6.0.8'
+end
+
+target 'Fruit AppClip' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  pod 'AppsFlyerFramework','6.0.8'
+end
+```
+
+* **It is very important you run the project through the `Fruit App.xcworkspace` file**. Else the projec will not be able to compile
+* Get your AppsFlyer Dev Key using [these instructions][get_af_devkey].
+4. Create the file `afdevkey_donotpush.plist` with the following content:
+
+```xml
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+        <key>appsFlyerDevKey</key>
+        <string>YOUR_AF_DEV_KEY_HERE</string>
+        <key>appleAppID</key>
+        <string>YOUR_APPLE_APP_ID_HERE</string>
+</dict>
+</plist>
+```
+* Add the file into your Xcode project
+
+> The file Fruit App.xcodeproj/project.pbxproj` will have some changes. **Do not commit them!**
+
+[get_af_devkey]: https://support.appsflyer.com/hc/en-us/articles/207032066-iOS-SDK-integration-for-developers#integration-31-retrieving-your-dev-key

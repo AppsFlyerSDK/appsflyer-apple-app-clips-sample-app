@@ -2,6 +2,12 @@
 #
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
 
+#.DS
+.DS_Store
+
+#AppsFlyer
+afdevkey_donotpush.plist
+
 ## User settings
 xcuserdata/
 
@@ -89,4 +95,3 @@ fastlane/test_output
 
 iOSInjectionProject/
 
-*.DS_Store
