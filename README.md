@@ -1,6 +1,6 @@
 # Latest version including integration with  [AppsFlyer SDK and measurement solution](https://support.appsflyer.com/hc/en-us/articles/360014262358)
 
-> ## Those interested in an example vanilla App Clip project without AppsFlyer code, go to tag *vanilla* ##
+> ## Those interested in an example vanilla App Clip project without AppsFlyer code, go to tag [*vanilla*](https://github.com/AppsFlyerSDK/appsflyer-apple-app-clips-sample-app/tree/vanilla) ##
 
 # Apple App Clips Sample App
 
