@@ -1,3 +1,5 @@
+> # This repository will be updated to include the [AppsFlyer SDK and measurement solution](https://support.appsflyer.com/hc/en-us/articles/360014262358) shortly after the release of SDK version 6.0.8
+
 # Apple App Clips Sample App
 
 <img src="https://user-images.githubusercontent.com/61788924/88316733-f027a900-cd20-11ea-86d2-3c66cd8c9615.png">
