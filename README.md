@@ -14,8 +14,8 @@
 - [Location verification](#location-verification)
 - [8-hour notifications](#notifications)
 - [Downloading the Full App](#download-full-app)
-- [AppsFlyer SDK and measurement](af-integration)
-- [‼️ How to run this project](run-project)
+- [AppsFlyer SDK and measurement](#af-integration)
+- [‼️ How to run this project](#run-project)
 
   With the release of `iOS14` we view [App Clips](https://developer.apple.com/documentation/app_clips) as an innovative step by Apple. 
   At AppsFlyer we see App Clips as the future and evolutions of apps, especially for apps that you do not use on a daily basis. 
